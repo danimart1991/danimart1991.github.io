@@ -131,7 +131,11 @@ defaults:
 
 category_archive:
   type: liquid
-  path: /categories/
+  path:
+    en: /en/categories/
+    es: /es/categorias/
 tag_archive:
   type: liquid
-  path: /tags/
+  path:
+    en: /en/tags/
+    es: /es/etiquetas/
