@@ -5,7 +5,7 @@ url: "https://www.danielmartingonzalez.com"
 twitter_username: "danimart1991"
 github_username: "danimart1991"
 repository: "danimart1991/danimart1991.github.io"
-minimal_mistakes_skin: mint
+minimal_mistakes_skin: default
 search: true
 locale: es
 logo: "/assets/images/logo.png"
