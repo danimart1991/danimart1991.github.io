@@ -87,9 +87,9 @@ author:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       url: "https://instagram.com/danimart1991"
-    - label: "Steam"
-      icon: "fab fa-fw fa-steam"
-      url: "https://steamcommunity.com/id/danimart1991"
+    - label: "Tip me"
+      icon: "fab fa-fw fa-paypal"
+      url: "https://www.paypal.me/danimart1991"
 
 footer:
   links:
@@ -99,12 +99,18 @@ footer:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/danimart1991"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/danimart1991/"
     - label: "YouTube"
       icon: "fab fa-fw fa-youtube"
       url: "https://www.youtube.com/user/danimart1991"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       url: "https://instagram.com/danimart1991"
+    - label: "Tip me"
+      icon: "fab fa-fw fa-paypal"
+      url: "https://www.paypal.me/danimart1991"
 
 defaults:
   # _posts
