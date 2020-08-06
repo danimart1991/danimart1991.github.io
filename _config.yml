@@ -126,6 +126,7 @@ defaults:
       related: true
       toc: true
       toc_sticky: true
+      show_date: true
   # _pages
   - scope:
       path: "_pages"
