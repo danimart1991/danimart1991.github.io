@@ -9,6 +9,7 @@ categories:
 lang: en
 ref: 25
 permalink: /en/make-your-own-smart-devices-with-esphome/
+last_modified_at: 2020-08-23
 ---
 
 [***ESPHome***](https://esphome.io/) is a [*framework*](https://es.wikipedia.org/wiki/Framework) (software module) to control [***ESP8266/ESP32***](/en/meet-esp8266-nodemcu-the-iot-wifi-module/) modules in a very simple but powerful way and create smart devices. In the same way, it allows to modify the system of other devices that use these modules, such as for example the [**Sonoff**](https://www.itead.cc/sonoff-wifi-wireless-switch.html) family, to make them much more powerful and versatile.
@@ -115,19 +116,25 @@ sensor:
     mac_address: XX:XX:XX:XX:XX # Mi Flora MAC Address
     temperature:
       id: mi_flora_temperature
+      name: "Mi Flora Temperature"
     moisture:
       id: mi_flora_humidity
+      name: "Mi Flora Humidity"
     illuminance:
       id: mi_flora_brightness
+      name: "Mi Flora Brightness"
     conductivity:
       id: mi_flora_conductivity
+      name: "Mi Flora Conductivity"
     battery_level:
       id: mi_flora_battery
+      name: "Mi Flora Battery"
 
 # Device Status (Sensor)
 binary_sensor:
   - platform: status
-    id: ${devicename}_status
+    id: esp32_01_status
+    name: "ESP32 (01) Status"
 
 # Device Status (LED)
 status_led:
