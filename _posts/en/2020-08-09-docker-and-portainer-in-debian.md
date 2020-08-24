@@ -9,6 +9,7 @@ categories:
 lang: en
 ref: 36
 permalink: /en/docker-and-portainer-in-debian/
+last_modified_at: 2020-08-24
 ---
 
 As our colleague [**Joaquín García** explained in an extensive article in **No Country for Geeks**](https://www.nocountryforgeeks.com/contenerizacion-de-aplicaciones-en-docker/), [***Docker***](https://www.docker.com/) is a platform for running applications in containers. These containers are a virtualization method that includes everything imaginable to easily package an entire environment.
@@ -212,7 +213,7 @@ If you still can't find templates for the applications, you can create your own 
 
 ![Portainer - External App templates](/assets/posts/en/docker-and-portainer-in-debian/portainer-external-templates.jpg)
 
-I recommend the list [*SelfHosted templates*](https://github.com/SelfhostedPro/selfhosted_templates).
+I recommend the list [***SelfHosted templates***](https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Template/template.json) by [*ShelfHostedPro*](https://github.com/SelfhostedPro/selfhosted_templates).
 
 ## Bonus 2: Keep your containers up to date
 
