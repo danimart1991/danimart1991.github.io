@@ -7,6 +7,7 @@ categories: [ English, Domotic, Home Assistant ]
 lang: en
 ref: 12
 permalink: /en/domotizing-our-house-with-home-assistant/
+last_modified_at: 2020-08-30
 ---
 
 Let's admit something, we humans are really lazy, but computer scientists are even more so. That's why we try to automate as much as possible, sometimes too much. A very common phrase is:
@@ -31,25 +32,22 @@ You can try a *DEMO* [**here**](https://demo.home-assistant.io/#/lovelace/0)
 
 Being a software developed in [*python*](https://www.python.org/) is compatible with a multitude of operating systems and devices. It is distributed in different ways to delight beginner and more advanced users.
 
-## *Hass.io* vs. *Home Assistant* vs. *Docker*
+## Type of installation
 
-Before we go into matter and since this is usually quite complex. Let's distinguish the most common ways to run **Home Assistant**.
+Before we get to the point and since it is usually quite confusing... Let's distinguish the most common ways to run **Home Assistant**.
 
-- [**Hass.io**](https://www.home-assistant.io/hassio/installation/) is a *Linux* distribution optimized to run **Home Assistant** on [*Docker*](https://www.docker.com/). That is, a custom distribution has been created so that everything is ready to install and run. As an advantage, it is simple and has a very powerful [**Add-ons**](https://www.home-assistant.io/addons/) system. As a disadvantage, we do not have real access to the operating system running the *Hass.io* container. This is the installation option we will see in this post.
+- [**Home Assistant (former Hass.io)**](https://www.home-assistant.io/getting-started/) in addition to the name of the application is an all-in-one that includes a *Linux* distribution optimized to run **Home Assistant** on [*Docker*](https://www.nocountryforgeeks.com/contenerizacion-de-aplicaciones-en-docker/) and a supervisor with several Docker containers already included. That is, a custom distribution has been created so that everything is ready to install and run. As an advantage, it is simple and has a very powerful [**Add-ons**](https://www.home-assistant.io/addons/) system. As a disadvantage, we do not have real access to the operating system of the host that runs the *Home Assistant (Hass.io)* container. It is the installation option that we will see in this post and more stable.
+- **Home Assistant Core** as we have mentioned is the software itself and as such, it can be installed in any *Linux* distribution (even if you dare in *Windows*), the usual is to install a simple *Linux* distribution, like [**Hassbian**](https://www.home-assistant.io/docs/hassbian/installation/) for [*Raspberry Pi*](https://www.raspberrypi.org/) for example, and then *Home Assistant* as "application", having all the power and control. Its installation is through [*Python* environments](https://www.home-assistant.io/docs/installation/virtualenv/). It does not have Add-ons and Snapshots as it is only the application.
+- [**Home Assistant Core on Docker**](https://www.home-assistant.io/docs/installation/docker/) is the most advantageous option for some, but also the most advanced. It consists of using a [*Docker* container](https://www.nocountryforgeeks.com/contenerizacion-de-aplicaciones-en-docker/) with *Home Assistant*, in such a way that we have a total control, and at the same time isolated from all the *Home Assistant* system with the advantages that it entails. On the other hand, it does not have the options of *Add-ons* and *Snapshots* because it is Home Assistant Core.
+- [**Home Assistant Supervised**](https://github.com/home-assistant/supervised-installer), is a mixture of the complete installation of *Home Assistant* and *Home Assistant Core on Docker*. It allows to use a main operating system with *Docker* and *Home Assistant Core*, and also to have *Add-ons* and *Snapshots* with the *Supervisor*. Its use is currently maintained by the community and requires advanced knowledge to avoid problems with its use and maintenance. I personally do not recommend this method of installation.
 
-- **Home Assistant** as we have mentioned is a software and as such, can be installed in any *Linux* distribution (even if you dare in *Windows*), the normal thing is to install a simple *Linux* distribution, like [**Hassbian**](https://www.home-assistant.io/docs/hassbian/installation/) for [*Raspberry Pi*](https://www.raspberrypi.org/) for example, and then *Home Assistant* as "application", having all the power and control.
+## Installing *Home Assistant*
 
-- [**Docker**](https://www.home-assistant.io/docs/installation/docker/) is the most advantageous option for some, but also the most advanced. It consists of creating a [*Docker* container](https://www.docker.com/) with *Home Assistant*, so that we have total control, and at the same time isolated from any *Home Assistant* with the advantages that this entails.
-
-Despite all these differences, you can then combine, for example, install *Home Assistant* with *Docker* and put *Hass.io* on top.
-
-## Installing *Hass.io*
-
-As we have mentioned, let's see how to install **Hass.io**, the reason, has the simplest and fastest installation. You can try *Home Assistant* after a few minutes and as we learn, move on to the other systems.
+As we have mentioned, let's see how to install the complete ***Home Assistant (Hass.io)*** system, the reason, it has the easiest and fastest installation. You can try *Home Assistant* after a few minutes and as you gain knowledge, move on to the other more advanced installation types.
 
 The recommended way to start, given the quality-price, is to use a [**Raspberry Pi 3 B+**](https://amzn.to/2lBMWFL) with [a **MicroSD** of at least *32Gb*](https://amzn.to/2lBMWFL). Of course, you can use [*a wide variety of hardware*](https://www.home-assistant.io/hassio/installation/), but I think this is one of the best options.
 
-1. Download the latest *Hass.io* image for your device. At the time of writing this article, [**Hass.io 2.12** for *Raspberry Pi 3 B / B+ 32bit*](https://github.com/home-assistant/hassos/releases/download/2.12/hassos_rpi3-2.12.img.gz_rpi3-2.12.img.gz).
+1. Download the latest image from [for your device](https://www.home-assistant.io/hassio/installation/). At the time of writing, [**Hassos 4.12** for *Raspberry Pi 3 B / B+ 32bit*](https://github.com/home-assistant/hassos/releases/download/2.12/hassos_rpi3-4.12.img.gz).
 
 2. Download and install on your computer a *SD* card image burner software. I like [**balenaEtcher**](https://www.balena.io/etcher).
 
@@ -85,9 +83,9 @@ The recommended way to start, given the quality-price, is to use a [**Raspberry 
 
 5. Eject the *SD* card from the computer and insert it into the *Raspberry Pi*. Plug it into the power supply and wait, depending on the device the download of the latest version and installation can take **up to 20 minutes**.
 
-    ![Installing Hass.io](/assets/posts/en/domotizing-our-house-with-home-assistant/preparing-hassio.jpg)
+    ![Installing Home Assistant](/assets/posts/en/domotizing-our-house-with-home-assistant/preparing-hassio.jpg)
 
-6. In the meantime, we can search our *Router* manual and see if it has **mDNS** available, in which case, we will be able to access the *Home Assistant* graphical interface from any other device by accessing the following address with the browser: `http://hassio.local:8123`, otherwise, and since we have configured a static *IP* on our server, we can access the interface with the address: `http://192.168.1.4:8123` (*IP* being the one previously set in the network configuration file).
+6. In the meantime, we can search our *Router* manual and see if it has **mDNS** available, in which case, we will be able to access the *Home Assistant* graphical interface from any other device by accessing the following address with the browser: `http://homeassistant.local:8123`, otherwise, and since we have configured a static *IP* on our server, we can access the interface with the address: `http://192.168.1.4:8123` (*IP* being the one previously set in the network configuration file).
 
 ## Basic configuration
 
