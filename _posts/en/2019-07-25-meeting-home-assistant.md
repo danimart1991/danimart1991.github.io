@@ -6,11 +6,12 @@ tags: homeassistant hassio domotica
 lang: en
 ref: 13
 permalink: /en/meeting-home-assistant/
+last_modified_at: 2020-08-31
 ---
 
 Once [created our **Home Assistant** server](/en/domotizing-our-house-with-home-assistant/), let's see how its web interface works and how to make the basic settings to start working and enjoy our intelligent home.
 
-To access the web interface, as we saw in the [previous article](/en/domotizing-our-house-with-home-assistant/), simply go to `http://hassio.local:8123` if your router has *mDNS*, or `http://xxx.xxx.xxx.xxx:8123` otherwise, replacing the `xs` with the *IP* you previously configured in the network configuration, and then logging in with the account created during installation.
+To access the web interface, as we saw in the [previous article](/en/domotizing-our-house-with-home-assistant/), simply go to `http://homeassistant.local:8123` if your router has *mDNS*, or `http://xxx.xxx.xxx.xxx:8123` otherwise, replacing the `xs` with the *IP* you previously configured in the network configuration, and then logging in with the account created during installation.
 
 ## *Lovelace*
 
@@ -18,7 +19,7 @@ To access the web interface, as we saw in the [previous article](/en/domotizing-
 
 By default **Lovelace** is configured to "autodiscover" configurations and automations, that means that if we integrate some device through the integrations wizard, or as we will see later through the configuration file, automatically we will be shown cards and information on the main screen (*Summary*).
 
-![Home Assistant Lovelace](/assets/posts/en/meeting-home-assistant/lovelace-dashboard.jpg)
+![Home Assistant Lovelace](/assets/posts/en/meeting-home-assistant/lovelace-dashboard.png)
 
 In addition, and accessing from the menu on the left, we will have by default the following features:
 
@@ -28,7 +29,7 @@ In addition, and accessing from the menu on the left, we will have by default th
 
 - **History**: Page to see all the changes that have happened in our entities over time as a log. It can be filtered to have a clearer vision.
 
-- **Hass.io**: If we have installed *HA (Home Assistant)* through *Hass.io* or we have installed it a posteriori, from this tab we will have available all the options that it offers, such as *Snapshots*, installation and management of *Add-ons*, and *Log* of the system among others.
+- **Supervisor**: If we have installed *HA (Home Assistant)* with *Supervisor* (our case), from this tab we will have available all the options that it offers, such as *Snapshots*, installation and management of *Add-ons*, and *Log* of the system among others.
 
 - **Configuration**: From here we will make all the configuration of *Home Assistant* in a more graphical way. So much users, as integrations, areas, entities customization...
 
@@ -42,35 +43,35 @@ If you don't like *Lovelace*, there are ways to change the themes, add cards and
 
 ## Installing our first *Add-on*
 
-To break the ice with *Hass.io*, there's nothing better than to start installing *Add-ons*. These *Add-ons* are improvements that are applied to our web server to give them new features. To access them, simply go to the *Hass.io* tab and then go to the *Add-on Store* option.
+To break the ice with *Home Assistant*, there's nothing better than to start installing *Add-ons*. These *Add-ons* are improvements that are applied to our web server to give them new features. To access them, simply go to the *Supervisor* tab and then go to the *Add-on Store* option.
 
-![Add-on Store](/assets/posts/en/meeting-home-assistant/hassio-addon-store.jpg)
+![Add-on Store](/assets/posts/en/meeting-home-assistant/hassio-addon-store.png)
 
 In this page we will have the *Add-ons* collected from different repositories. At the moment, from the official *Add-ons* repository and from the community's verified *Add-ons* repository. You can add as many repositories as you want, even *Add-ons* own repositories that we are developing.
 
 As a trial and step install a useful *Add-on*. Select the *Add-on* [**Check Home Assistant configuration**](https://github.com/home-assistant/hassio-addons/tree/master/check_config) from the list.
 
-![Check Home Assistant Configuration](/assets/posts/en/meeting-home-assistant/official-addons.jpg)
+![Check Home Assistant Configuration](/assets/posts/en/meeting-home-assistant/official-addons.png)
 
-When a new version of *Hass.io* and/or *Home Assistant* is released, it sometimes comes with *Breaking Changes*, that is to say, with changes that can spoil our configuration and make some things stop working or even that our whole system collapses and doesn't start. The [**Check Home Assistant configuration**](https://github.com/home-assistant/hassio-addons/tree/master/check_config) *Add-on* takes care of reviewing all our configuration, installing the new version in a separate container and proving that there is no problem. It doesn't guarantee 100% that everything is perfect, but at least it gives us an idea that we can at least install and start the server once we upgrade to the new version.
+When a new version of *Home Assistant* is released, it sometimes comes with *Breaking Changes*, that is to say, with changes that can spoil our configuration and make some things stop working or even that our whole system collapses and doesn't start. The [**Check Home Assistant configuration**](https://github.com/home-assistant/hassio-addons/tree/master/check_config) *Add-on* takes care of reviewing all our configuration, installing the new version in a separate container and proving that there is no problem. It doesn't guarantee 100% that everything is perfect, but at least it gives us an idea that we can install and start the server once we upgrade to the new version.
 
 To install, as simple as clicking on **INSTALL**, and once installed, and as indicated in the documentation and for this *Add-on*, click on **START**.
 
-![Installing Check Home Assistant Configuration](/assets/posts/en/meeting-home-assistant/check-home-assistant-configuration-addon.jpg)
+![Installing Check Home Assistant Configuration](/assets/posts/en/meeting-home-assistant/check-home-assistant-configuration-addon.png)
 
-It'll take a few minutes. But when it's over, at the bottom, in the **Log**, we'll have a record of what the *Add-on* has done, and whether our system is ready to update. From now on, we just have to hit the *START* button every time we want to test what would happen if we updated *Hass.io*.
+It'll take a few minutes. But when it's over, at the bottom, in the **Log**, we'll have a record of what the *Add-on* has done, and whether our system is ready to update. From now on, we just have to hit the *START* button every time we want to test what would happen if we updated *Home Assistant*.
 
-![Check Home Assistant Configuration Log](/assets/posts/en/meeting-home-assistant/check-home-assistant-configuration-log.jpg)
+![Check Home Assistant Configuration Log](/assets/posts/en/meeting-home-assistant/check-home-assistant-configuration-log.png)
 
-> The *Add-on* will stop automatically when finished. Of course, other *Add-ons* don't work this way, they have a permanent functionality and we can even start them with the *Hass.io* startup in such a way that they are always available.
+> The *Add-on* will stop automatically when finished. Of course, other *Add-ons* don't work this way, they have a permanent functionality and we can even start them with the *Home Assistant* startup in such a way that they are always available.
 
 ## Creating our first automation
 
-One of the most useful features of Home Assistant is the [**automations**](https://www.home-assistant.io/getting-started/automation/). Again, although they can be created from the dashboard, as we will see now, many users tend to perform these automations using [*yaml*](https://yaml.org/) code and [*python*](https://www.python.org/) *scripts* to facilitate their reuse and backup.
+One of the most useful features of Home Assistant is the [**automations**](https://www.home-assistant.io/getting-started/automation/). Again, although they can be created from the Dashboard, as we will see now, many users tend to perform these automations using [*yaml*](https://yaml.org/) code and [*python*](https://www.python.org/) *scripts* to facilitate their reuse and backup.
 
 To test how automations work, go to **Configuration - Automations**, and click on the button to create a new one.
 
-![Home Assistant Automations](/assets/posts/en/meeting-home-assistant/automation.jpg)
+![Home Assistant Automations](/assets/posts/en/meeting-home-assistant/automation.png)
 
 Set the following parameters:
 
@@ -84,24 +85,22 @@ Set the following parameters:
   - **Service**: `persistent_notification.create`
   - **Service Data**:
 
-    ```json
-    {
-      "title": "Home Assistant",
-      "message": "Home Assistant started."
-    }
+    ```yaml
+    title: "Home Assistant"
+    message: "Home Assistant started."
     ```
 
 Save.
 
-![Home Assistant Automation](/assets/posts/en/meeting-home-assistant/new-automation.jpg)
+![Home Assistant Automation](/assets/posts/en/meeting-home-assistant/new-automation.png)
 
-The **automation** created triggers a notification for all users on the *dashboard* when *Home Assistant* starts. To test it, go to the **Settings -> General** tab and click **Restart** at the bottom. After waiting a few minutes, *Home Assistant* will have restarted. Go back to the main page (you can click on the **Summary** tab), and you will see a notification at the top right.
+The **automation** created triggers a notification for all users on the *Dashboard* when *Home Assistant* starts. To test it, go to the **Settings -> General** tab and click **Restart** at the bottom. After waiting a few minutes, *Home Assistant* will have restarted. Go back to the main page (you can click on the **Summary** tab), and you will see a notification at the bottom left.
 
-![Home Assistant nueva notificación](/assets/posts/en/meeting-home-assistant/new-notification.jpg)
+![Home Assistant nueva notificación](/assets/posts/en/meeting-home-assistant/new-notification.png)
 
 Clicking will display the **notification** that has just been sent with our automation.
 
-![Home Assistant mostrar notificación](/assets/posts/en/meeting-home-assistant/notification.jpg)
+![Home Assistant mostrar notificación](/assets/posts/en/meeting-home-assistant/notification.png)
 
 ## Conclusion
 
