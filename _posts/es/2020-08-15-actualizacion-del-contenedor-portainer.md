@@ -31,8 +31,10 @@ Abre una terminal y escribe los siguientes comandos:
 ```bash
 $ docker stop Portainer
 $ docker rm Portainer
-$ docker pull portainer/portainer
-$ docker run -d --name=Portainer --hostname=Portainer --network=host --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data -e TZ='Europe/Madrid' portainer/portainer
+$ docker pull portainer/portainer-ce
+$ docker run -d --name=Portainer --hostname=portainer --network=host --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data -e TZ='Europe/Madrid' portainer/portainer-ce
 ```
+
+> A partir de la versión **2.0.0** de **Portainer**, la imagen pasa a ser llamada `portainer-ce`.
 
 Una vez finalizado, accede a la dirección `http://IPDEPORTAINER:9000` para comprobar que *Portainer* está actualizado.

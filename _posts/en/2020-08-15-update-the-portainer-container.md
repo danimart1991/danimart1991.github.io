@@ -31,8 +31,10 @@ Open a terminal and type the following commands:
 ```bash
 $ docker stop Portainer
 $ docker rm Portainer
-$ docker pull portainer/portainer
-$ docker run -d --name=Portainer --hostname=Portainer --network=host --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data -e TZ='Europe/Madrid' portainer/portainer
+$ docker pull portainer/portainer-ce
+$ docker run -d --name=Portainer --hostname=portainer --network=host --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data -e TZ='Europe/Madrid' portainer/portainer-ce
 ```
+
+> Starting with version **2.0.0** of **Portainer**, the image is now named `portainer-ce`.
 
 Once completed, browse `http://PORTAINERIP:9000` to check that *Portainer* is up to date.
