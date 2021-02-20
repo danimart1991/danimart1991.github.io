@@ -1,75 +1,74 @@
+# Theme Settings
+# theme: "minimal-mistakes-jekyll"
+remote_theme: "mmistakes/minimal-mistakes"
+minimal_mistakes_skin: default
+
+# Site Settings
+locale: es
 title: "danimart1991's Blog"
-email: "danimart1991@outlook.com"
+# title_separator: "-"
+# subtitle: # site tagline that appears below site title in masthead
+name: "Daniel Martín González"
 description: "One blog more! Another post, another article."
 url: "https://www.danielmartingonzalez.com"
-twitter_username: "danimart1991"
-github_username: "danimart1991"
 repository: "danimart1991/danimart1991.github.io"
-minimal_mistakes_skin: default
-search: true
-locale: es
-logo: "/assets/images/logo.png"
 teaser: "/assets/images/teaser.png"
-
-# Shared Links
-twitter:
-  username: "danimart1991"
-og_image: "/assets/images/logo.png"
-
-# Social Search
-social:
-  type:  "Person"
-  name:  "Daniel Martin Gonzalez"
-  links:
-    - "https://twitter.com/danimart1991"
-    - "https://www.github.com/danimart1991"
-    - "https://www.youtube.com/user/danimart1991"
-    - "https://instagram.com/danimart1991"
-
-# Build settings
-markdown: kramdown
-remote_theme: mmistakes/minimal-mistakes
-
-# Outputting
-permalink: /:title/
-paginate: 5
-paginate_path: /page:num/
-timezone: "Europe/Madrid"
-
-include:
-  - _pages
-
+logo: "/assets/images/logo.png"
+# masthead_title: # overrides the website title displayed in the masthead, use " " for no title
+# breadcrumbs: false # true, false (default)
+words_per_minute: 200
 comments:
   provider: "utterances"
   utterances:
     theme: "github-light"
     issue_term: "pathname"
+# reCaptcha:
+#   siteKey:
+#   secret:
+# atom_feed:
+#   path: # blank (default) uses feed.xml
+#   hide: # true, false (default)
+search: true
+seatch_full_content: true
+# search_provider: # lunr (default), algolia, google
 
+# SEO Related
 google_site_verification: "WAErZAzWb2MenLXs9_lSmuOYrP5izcLA2gG6X8Mjdxo"
+# bing_site_verification:
+# yandex_site_verification:
+# naver_site_verification:
 
+# Social Sharing
+twitter:
+  username: "danimart1991"
+og_image: "/assets/images/logo.png"
+social:
+  type: "Person"
+  name: "Daniel Martin Gonzalez"
+  links:
+    - "https://twitter.com/danimart1991"
+    - "https://www.github.com/danimart1991"
+    - "https://www.linkedin.com/in/danimart1991/"
+    - "https://www.youtube.com/user/danimart1991"
+    - "https://instagram.com/danimart1991"
+
+# Analytics
 analytics:
   provider: "google-gtag"
   google:
     tracking_id: "UA-96554215-1"
     anonymize_ip: false
 
+# Ads
 ads:
   google:
-    client: ca-pub-4963315397899101
+    client: "ca-pub-4963315397899101"
 
-# Plugins (previously gems:)
-plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-gist
-  - jekyll-feed
-  - jemoji
-  - jekyll-include-cache
-
+# Site Author
 author:
-  name   : "Daniel Martín González"
-  avatar : "/assets/images/bio-photo.jpg"
-  bio    : "Mind powered."
+  name: "Daniel Martín González"
+  avatar: "/assets/images/bio-photo.jpg"
+  bio: "Mind powered."
   location: "Madrid, Spain"
   links:
     - label: "Twitter"
@@ -91,6 +90,7 @@ author:
       icon: "fab fa-fw fa-paypal"
       url: "https://www.paypal.me/danimart1991"
 
+# Site Footer
 footer:
   links:
     - label: "Twitter"
@@ -112,6 +112,105 @@ footer:
       icon: "fab fa-fw fa-paypal"
       url: "https://www.paypal.me/danimart1991"
 
+# Reading Files
+include:
+  - .htaccess
+  - _pages
+exclude:
+  - "*.sublime-project"
+  - "*.sublime-workspace"
+  - vendor
+  - .asset-cache
+  - .bundle
+  - .jekyll-assets-cache
+  - .sass-cache
+  - assets/js/plugins
+  - assets/js/_main.js
+  - assets/js/vendor
+  - Capfile
+  - CHANGELOG
+  - config
+  - Gemfile
+  - Gruntfile.js
+  - gulpfile.js
+  - LICENSE
+  - log
+  - node_modules
+  - package.json
+  - package-lock.json
+  - Rakefile
+  - README
+  - tmp
+  - /docs
+  - /test
+keep_files:
+  - .git
+  - .svn
+encoding: "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+
+# Conversion
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
+
+# Markdown Processing
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: "as_char"
+  toc_levels: 1..6
+  smart_quotes: "lsquo,rsquo,ldquo,rdquo"
+  enable_coderay: false
+
+# Sass/SCSS
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Outputting
+permalink: "/:title/"
+paginate: 5
+paginate_path: "/page:num/"
+timezone: "Europe/Madrid"
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jekyll-include-cache
+whitelist:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jekyll-include-cache
+
+# Archives
+category_archive:
+  type: liquid
+  path:
+    en: "/en/categories/"
+    es: "/es/categorias/"
+tag_archive:
+  type: liquid
+  path:
+    en: "/en/tags/"
+    es: "/es/etiquetas/"
+
+# HTML Compression
+compress_html:
+  clippings: all
+  ignore:
+    envs: development
+
+# Defaults
 defaults:
   # _posts
   - scope:
@@ -135,14 +234,3 @@ defaults:
       layout: single
       author_profile: true
       classes: wide
-
-category_archive:
-  type: liquid
-  path:
-    en: /en/categories/
-    es: /es/categorias/
-tag_archive:
-  type: liquid
-  path:
-    en: /en/tags/
-    es: /es/etiquetas/
