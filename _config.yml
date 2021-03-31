@@ -56,7 +56,7 @@ social:
 analytics:
   provider: "google-gtag"
   google:
-    tracking_id: "UA-96554215-1"
+    tracking_id: "G-CM0FCH0P8K"
     anonymize_ip: false
 
 # Ads
