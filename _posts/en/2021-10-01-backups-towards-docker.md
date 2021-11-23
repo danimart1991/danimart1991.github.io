@@ -67,17 +67,17 @@ The services themselves, many times, allow you to configure the folders where yo
 
 ## Installation
 
-As on other occasions, **we are going to instantiate the service using _Docker_**. The _Duplicati_ container that [_LinuxServer_](https://docs.linuxserver.io/images/docker-duplicati) gives us does not have much complexity, we just have to execute the following command in our terminal changing a couple of parameters.
+As on other occasions, **we are going to instantiate the service using _Docker_**. The [_Duplicati_ container](https://hub.docker.com/r/duplicati/duplicati) gives us does not have much complexity, we just have to execute the following command in our terminal changing a couple of parameters.
 
 ```bash
-$ docker run -d --name=duplicati --hostname=duplicati -e PUID=${UID} -e PGID=$(id -g) -e TZ=Europe/Madrid --net=bridge -p 8200:8200 -v /docker/etc/duplicati_config:/config -v /docker/backups:/backups -v /docker/etc:/source --restart always ghcr.io/linuxserver/duplicati
+$ docker run -d --name=duplicati --hostname=duplicati -e TZ=Europe/Madrid --net=bridge -p 8200:8200 -v /docker/etc/duplicati_data:/data -v /docker/backups:/backups -v /docker/etc:/source --restart always duplicati/duplicati
 ```
 
 > You also have an example for _Docker Compose_ [here](https://github.com/danimart1991/docker-compose-files/tree/master/duplicati).
 
 As you can see, I'm going to use the host folder `/docker/backups` folder to save the local backups and the folder `/docker/etc` as a data source for backups. As is common in _Docker_, you can link all the folders that you think are appropriate with the container to make the backups as you like.
 
-> Note: You can also see how I include the _Duplicati_ configuration folder among the files that I am going to save by putting it inside the data source folder with `-v /docker/etc/duplicati_config:/config`.
+> Note: You can also see how I include the _Duplicati_ configuration folder among the files that I am going to save by putting it inside the data source folder with `-v /docker/etc/duplicati_data:/data`.
 
 Once the _Duplicati_ service is instantiated. You can access its Web manager from `http://IPDETUSERVIDOR:8200`.
 
@@ -119,7 +119,7 @@ From the home screen, we will have all the information about the number of copie
 
 ## Restore Backups
 
-Let's imagine for a moment, that a catastrophe has occurred and we want to recover data from a backup copy. \*_Duplicati_ allows us to restore backup copies incrementally if this has been configured and restore parts of that copy as files or folders separately\*.
+Let's imagine for a moment, that a catastrophe has occurred and we want to recover data from a backup copy. **_Duplicati_ allows us to restore backup copies incrementally if this has been configured and restore parts of that copy as files or folders separately**.
 
 If the catastrophe is not so serious as to have destroyed _Duplicati_ and its configuration, simply enter the _Duplicati Web_ manager, click on the _"Restore"_ menu, and select the configuration from which you want to recover (_Docker Services_ in this article). Then, we select the data to recover and finally what we want to do with that data. For example, we can recover a file for a change that has broken a configuration of a service, to a previous version of it.
 
@@ -147,4 +147,4 @@ This and other articles complement the documentation of my [**_GitHub_ repositor
 
 - [Duplicati - Articles](https://www.duplicati.com/articles/)
 - [Duplicati - Documentation](https://duplicati.readthedocs.io/en/latest/)
-- [LinuxServer - Duplicati Docker Documentation](https://docs.linuxserver.io/images/docker-duplicati)
+- [DockerHub - Duplicati Docker Documentation](https://hub.docker.com/r/duplicati/duplicati)

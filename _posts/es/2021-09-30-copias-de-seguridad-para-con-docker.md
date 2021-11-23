@@ -67,17 +67,17 @@ Los propios servicios, muchas veces, permiten configurar las carpetas donde se g
 
 ## Instalación
 
-Como en otras ocasiones, **vamos a instanciar el servicio usando _Docker_**. El contenedor de _Duplicati_ que nos brinda [_LinuxServer_](https://docs.linuxserver.io/images/docker-duplicati) no tiene mucha complejidad, solo debemos ejecutar el siguiente comando en nuestro terminal cambiando un par de parámetros.
+Como en otras ocasiones, **vamos a instanciar el servicio usando _Docker_**. El [contenedor de _Duplicati_](https://hub.docker.com/r/duplicati/duplicati) no tiene mucha complejidad, solo debemos ejecutar el siguiente comando en nuestro terminal cambiando un par de parámetros.
 
 ```bash
-$ docker run -d --name=duplicati --hostname=duplicati -e PUID=${UID} -e PGID=$(id -g) -e TZ=Europe/Madrid --net=bridge -p 8200:8200 -v /docker/etc/duplicati_config:/config -v /docker/backups:/backups -v /docker/etc:/source --restart always ghcr.io/linuxserver/duplicati
+$ docker run -d --name=duplicati --hostname=duplicati -e TZ=Europe/Madrid --net=bridge -p 8200:8200 -v /docker/etc/duplicati_data:/data -v /docker/backups:/backups -v /docker/etc:/source --restart always duplicati/duplicati
 ```
 
 > También dispones de un ejemplo para _Docker Compose_ [aquí](https://github.com/danimart1991/docker-compose-files/tree/master/duplicati).
 
 Como puedes ver, voy a utilizar la carpeta `/docker/backups` del _host_ para guardar las copias de seguridad locales y la carpeta `/docker/etc` como origen de datos para realizar las copias de seguridad. Como es común en _Docker_, puedes vincular todas las carpetas que creas apropiadas con el contenedor para realizar las copias de seguridad a tu gusto.
 
-> Nota: También puedes observar como incluyo la propia carpeta de configuración de _Duplicati_ entre los archivos que voy a guardar metiéndola dentro de la carpeta de origen de datos con `-v /docker/etc/duplicati_config:/config`.
+> Nota: También puedes observar como incluyo la propia carpeta de configuración de _Duplicati_ entre los archivos que voy a guardar metiéndola dentro de la carpeta de origen de datos con `-v /docker/etc/duplicati_data:/data`.
 
 Una vez instanciado el servicio de _Duplicati_. Puedes acceder a su gestor _Web_ desde `http://IPDETUSERVIDOR:8200`.
 
@@ -147,4 +147,4 @@ Este y otros artículos complementan la documentación de mis [**repositorios de
 
 - [Duplicati - Articles](https://www.duplicati.com/articles/)
 - [Duplicati - Documentation](https://duplicati.readthedocs.io/en/latest/)
-- [LinuxServer - Duplicati Docker Documentation](https://docs.linuxserver.io/images/docker-duplicati)
+- [DockerHub - Duplicati Docker Documentation](https://hub.docker.com/r/duplicati/duplicati)
