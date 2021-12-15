@@ -4,16 +4,17 @@ header:
   image: /assets/posts/es/ip-estatica-en-debian/header.jpg
 categories:
   - Tutorial
-  - PC   
+  - PC
   - Linux
 lang: es
 ref: 35
 permalink: /es/ip-estatica-en-debian/
+last_modified_at: 2021-12-15
 ---
 
-Por defecto, el instalador de [*Debian 10*](https://www.debian.org/) configura la red vía [*DHCP*](https://es.wikipedia.org/wiki/Protocolo_de_configuraci%C3%B3n_din%C3%A1mica_de_host). Esto hace que la *IP* del servidor cambie con cada reinicio a no ser que se reserve su *IP* en el *Router*. En mi caso, la configuración de red de ciertos dispositivos prefiero configurarlos de manera manual en el propio dispositivo, además mi *Router* no permite reservar más de 8 *IPs* por lo que se hace inviable reservar *IPs* para todos los dispositivos de mi casa.
+Por defecto, el instalador de [_Debian 10_](https://www.debian.org/) configura la red vía [_DHCP_](https://es.wikipedia.org/wiki/Protocolo_de_configuraci%C3%B3n_din%C3%A1mica_de_host). Esto hace que la _IP_ del servidor cambie con cada reinicio a no ser que se reserve su _IP_ en el _Router_. En mi caso, la configuración de red de ciertos dispositivos prefiero configurarlos de manera manual en el propio dispositivo, además mi _Router_ no permite reservar más de 8 _IPs_ por lo que se hace inviable reservar _IPs_ para todos los dispositivos de mi casa.
 
-Vamos a ver como cambiar la configuración de red del servidor para que tenga siempre la misma *IP*. Por el momento, puedes consultar cual es la configuración actual con el comando:
+Vamos a ver como cambiar la configuración de red del servidor para que tenga siempre la misma _IP_. Por el momento, puedes consultar cual es la configuración actual con el comando:
 
 ```bash
 $ ip a
@@ -31,7 +32,7 @@ $ ip a
        valid_lft forever preferred_lft forever
 ```
 
-Quédate con la interfaz cuyo `inet` cumpla con el rango habitual de *IPs* de tu red. En mi caso `enp2s0`.
+Quédate con la interfaz cuyo `inet` cumpla con el rango habitual de _IPs_ de tu red. En mi caso `enp2s0`.
 
 ## Asignando una IP estática
 
@@ -86,13 +87,13 @@ A continuación, guarda el fichero con la tecla **F3** y cierra el editor de tex
 
 ## Modificar el servidor DNS
 
-Si además se quiere modificar el servidor *DNS* usado por el dispositivo para la resolución *DNS*, ejecuta el siguiente comando:
+Si además se quiere modificar el servidor _DNS_ usado por el dispositivo para la resolución _DNS_, ejecuta el siguiente comando:
 
 ```bash
 $ sudo nano /etc/resolv.conf
 ```
 
-En el editor de texto, añade o modifica tantas lineas `nameserver` como servidores *DNS* quieras usar. Por ejemplo:
+En el editor de texto, añade o modifica tantas lineas `nameserver` como servidores _DNS_ quieras usar. Por ejemplo, para usar las _DNSs_ de _Google_:
 
 ```bash
 domain Home
@@ -101,13 +102,15 @@ nameserver 1.1.1.1
 nameserver 8.8.8.8
 ```
 
-En mi caso, dejo que el *Router* sea el encargado de asignar el servidor *DNS* que configure en el mismo previamente, así que apunto a la puerta de enlace del *Router*:
+En mi caso, dejo que el _Router_ sea el encargado de asignar el servidor _DNS_ que configure en el mismo previamente, así que apunto solamente a la puerta de enlace del _Router_:
 
 ```bash
 domain Home
 search Home
 nameserver 192.168.1.1
 ```
+
+> Si dejaste vacío la configuración del _Dominio_ en la instalación de _Debian_, es posible que los campos `domain` y `search` no estén configurados en el archivo. No son necesarios.
 
 De nuevo, guardamos con **F3** y salimos con **F2**.
 
@@ -128,9 +131,9 @@ Se pueden comprobar que los cambios han sido aplicados ejecutando de nuevo el co
 $ ip a
 ```
 
-Verás que la interfaz tiene ahora asignada la *IP* configurada en pasos anteriores.
+Verás que la interfaz tiene ahora asignada la _IP_ configurada en pasos anteriores.
 
-En cuanto al servidor *DNS*. Se puede ejecutar un simple comando `ping` para ver si se resuelve algún dominio:
+En cuanto al servidor _DNS_. Se puede ejecutar un simple comando `ping` para ver si se resuelve algún dominio:
 
 ```bash
 $ ping -c3 danielmartingonzalez.com
@@ -146,4 +149,4 @@ rtt min/avg/max/mdev = 10.796/10.941/11.157/0.177 ms
 
 ## Conclusión
 
-Nuestra maquina con *Debian* ahora tendrá una **configuración de red manual** que facilitará su gestión. Para ello solo ha hecho falta modificar dos archivos y reiniciar la interfaz de red. Estos conocimientos nos serán útiles en el futuro para próximos artículos que requerirán que el propio dispositivo actúe de servidor *DNS*. Pero eso se verá más adelante.
+Nuestra maquina con _Debian_ ahora tendrá una **configuración de red manual** que facilitará su gestión. Para ello solo ha hecho falta modificar dos archivos y reiniciar la interfaz de red. Estos conocimientos nos serán útiles en el futuro para próximos artículos que requerirán que el propio dispositivo actúe de servidor _DNS_. Pero eso se verá más adelante.

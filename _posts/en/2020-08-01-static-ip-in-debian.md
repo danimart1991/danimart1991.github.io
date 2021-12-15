@@ -4,16 +4,17 @@ header:
   image: /assets/posts/en/static-ip-in-debian/header.jpg
 categories:
   - Tutorial
-  - PC   
+  - PC
   - Linux
 lang: en
 ref: 35
 permalink: /en/static-ip-in-debian/
+last_modified_at: 2021-12-15
 ---
 
-By default, the [*Debian 10*](https://www.debian.org/) installer configures the network via [*DHCP*](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol). This causes the server's *IP* to change with each reboot unless its *IP* is reserved in the *Router*. In my case, the network configuration of certain devices I prefer to configure manually on the device itself, and my *Router* does not allow to reserve more than 8 *IPs* so it becomes unfeasible to reserve *IPs* for all devices in my house.
+By default, the [_Debian 10_](https://www.debian.org/) installer configures the network via [_DHCP_](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol). This causes the server's _IP_ to change with each reboot unless its _IP_ is reserved in the _Router_. In my case, the network configuration of certain devices I prefer to configure manually on the device itself, and my _Router_ does not allow to reserve more than 8 _IPs_ so it becomes unfeasible to reserve _IPs_ for all devices in my house.
 
-Let's see how to change the network configuration of the server so that it always has the same *IP*. For the moment, you can check what the current configuration is with the command:
+Let's see how to change the network configuration of the server so that it always has the same _IP_. For the moment, you can check what the current configuration is with the command:
 
 ```bash
 $ ip a
@@ -31,7 +32,7 @@ $ ip a
        valid_lft forever preferred_lft forever
 ```
 
-Keep the interface whose `inet` complies with the usual range of *IPs* in your network. In my case `enp2s0`.
+Keep the interface whose `inet` complies with the usual range of _IPs_ in your network. In my case `enp2s0`.
 
 ## Assigning a static IP
 
@@ -86,13 +87,13 @@ Then save the file with the **F3** key and close the text editor with **F2**.
 
 ## Modify the DNS server
 
-If you also want to modify the *DNS* server used by the device for *DNS* resolution, execute the following command:
+If you also want to modify the _DNS_ server used by the device for _DNS_ resolution, execute the following command:
 
 ```bash
 $ sudo nano /etc/resolv.conf
 ```
 
-In the text editor, add or modify as many `nameserver` lines as *DNS* servers you want to use. For example:
+In the text editor, add or modify as many `nameserver` lines as _DNS_ servers you want to use. For example, to use the _Google DNSs_:
 
 ```bash
 domain Home
@@ -101,13 +102,15 @@ nameserver 1.1.1.1
 nameserver 8.8.8.8
 ```
 
-In my case, I let the *Router* be in charge of assigning the *DNS* server that I previously configured on it, so I point to the *Router*'s gateway:
+In my case, I let the _Router_ be in charge of assigning the _DNS_ server that I previously configured on it, so I point to the _Router_'s gateway:
 
 ```bash
 domain Home
 search Home
 nameserver 192.168.1.1
 ```
+
+> If you left the _Domain_ settings empty in the _Debian_ installation, the `domain` and `search` fields may not be set in the file. They are not necessary.
 
 Again, save with F3 and came out with F2.
 
@@ -128,9 +131,9 @@ You can check that the changes have been applied by running the command again:
 $ ip a
 ```
 
-You will see that the interface is now assigned the *IP* configured in previous steps.
+You will see that the interface is now assigned the _IP_ configured in previous steps.
 
-As for the *DNS* server. You can execute a simple `ping` command to see if any domain is resolved:
+As for the _DNS_ server. You can execute a simple `ping` command to see if any domain is resolved:
 
 ```bash
 $ ping -c3 danielmartingonzalez.com
@@ -146,4 +149,4 @@ rtt min/avg/max/mdev = 10.796/10.941/11.157/0.177 ms
 
 ## Conclusion
 
-Our machine with *Debian* will now have a **manual network configuration** that will facilitate its management. To do this, you only need to modify two files and restart the network interface. This knowledge will be useful in the future for next articles that will require the device itself to act as a *DNS* server. But that will be seen later.
+Our machine with _Debian_ will now have a **manual network configuration** that will facilitate its management. To do this, you only need to modify two files and restart the network interface. This knowledge will be useful in the future for next articles that will require the device itself to act as a _DNS_ server. But that will be seen later.
