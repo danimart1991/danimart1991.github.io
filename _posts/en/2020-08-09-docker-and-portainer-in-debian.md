@@ -9,7 +9,7 @@ categories:
 lang: en
 ref: 36
 permalink: /en/docker-and-portainer-in-debian/
-last_modified_at: 2021-12-15
+last_modified_at: 2021-12-16
 ---
 
 As our colleague [**Joaquín García** explained in an extensive article in **No Country for Geeks**](https://www.nocountryforgeeks.com/contenerizacion-de-aplicaciones-en-docker/), [**_Docker_**](https://www.docker.com/) is a platform for running applications in containers. These containers are a virtualization method that includes everything imaginable to easily package an entire environment.
@@ -37,40 +37,26 @@ We are missing a requirement, **to add the repository in order to install _Docke
 1. Install the following packages to allow `apt` to use secure repositories over [_HTTPS_](https://en.wikipedia.org/wiki/HTTPS). Execute the following commands in the console, one by one:
 
    ```bash
-   $ sudo apt-get install apt-transport-https
    $ sudo apt-get install ca-certificates
    $ sudo apt-get install curl
-   $ sudo apt-get install gnupg-agent
-   $ sudo apt-get install software-properties-common
+   $ sudo apt-get install gnupg
+   $ sudo apt-get install lsb-release
    ```
 
 2. Add the official [_GPG_](https://gnupg.org/) keys for _Docker_.
 
    ```bash
-   $ curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+   $ curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
    OK
-   ```
-
-   You can check that you have the key with his fingerprint with the command:
-
-   ```bash
-   $ sudo apt-key fingerprint 0EBFCD88
-
-   pub   rsa4096 2017-02-22
-         9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
-   uid   [Unknown]  Docker Release (CE deb) <docker@docker.com>
-   sub   rsa4096 2017-02-22
    ```
 
 3. Add the repository to the list of repositories to get _Docker_.
 
    ```bash
-   $ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+   $ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
    ```
 
    > The command `lsb_release -cs` returns the name of the installed Debian distribution (e.g. `buster` for _Debian 10_).
-   >
-   > The `arch` parameter it is necessary to indicate the architecture of your device, you must choose between `amd64`, `armhf` or `arm64` options.
 
 4. Finally, update the package collection.
 
@@ -91,6 +77,7 @@ After a few seconds you can check that _Docker_ has been installed correctly by 
 ```bash
 $ docker -v
 Docker version 19.03.12, build 48a66213fe
+
 $ sudo docker run hello-world
 Unable to find image 'hello-world:latest' locally
 latest: Pulling from library/hello-world
@@ -160,16 +147,16 @@ $ docker volume inspect portainer_data
 
 ### Install Portainer
 
-Leaving aside the 'hello_world' container, let's mount your first container, this time based on the image of _Portainer_. Execute the command:
+Leaving aside the 'hello*world' container, let's mount your first container, this time based on the image of \_Portainer*. Execute the command:
 
 ```bash
-$ docker run -d --name=Portainer --hostname=Portainer --network=host --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data -e TZ='Europe/Madrid' portainer/portainer
+$ docker run -d --name=portainer --hostname=portainer --network=host --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data -e TZ='Europe/Madrid' portainer/portainer-ce
 
-Unable to find image 'portainer/portainer'
+Unable to find image 'portainer/portainer-ce'
 d1e017099d17: Pull complete
 b8084bf83dcf: Pull complete
 Digest: sha256:55c...
-Status: Downloaded newer image for portainer/portainer:latest
+Status: Downloaded newer image for portainer/portainer-ce:latest
 96f1...
 ```
 
@@ -183,7 +170,7 @@ As it is a quite long command, it is recommended to know the `docker` commands a
 - `-v /var/run/docker.sock:/var/run/docker.sock`: Links a server folder (left), with a container folder (right). In this case as _Portainer_ will have access to the server containers, it links its information with the `docker.sock` file.
 - `-v portainer_data:/data`: Links the volume, with the _Portainer_ configuration folder inside the container.
 - `-e TZ='Europe/Madrid'`: Although it is not necessary, I usually like to manually set the time zone for the container.
-- `portainer/portainer`: Indicates the image used to mount the container. If no version is specified, it will take the latest stable version.
+- `portainer/portainer-ce`: Indicates the image used to mount the container. If no version is specified, it will take the latest stable version.
 
 ### Using Portainer
 
