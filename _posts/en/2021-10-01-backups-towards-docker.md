@@ -2,6 +2,7 @@
 title: "Backups towards Docker"
 header:
   image: /assets/posts/en/backups-towards-docker/header.png
+  teaser: /assets/posts/en/backups-towards-docker/teaser.png
 categories:
   - Tutorial
   - Docker

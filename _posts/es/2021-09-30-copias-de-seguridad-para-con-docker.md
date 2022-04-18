@@ -2,6 +2,7 @@
 title: "Copias de Seguridad para con Docker"
 header:
   image: /assets/posts/es/copias-de-seguridad-para-con-docker/header.png
+  teaser: /assets/posts/es/copias-de-seguridad-para-con-docker/teaser.png
 categories:
   - Tutorial
   - Docker
