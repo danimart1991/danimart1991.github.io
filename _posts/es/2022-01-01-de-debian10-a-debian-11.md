@@ -2,6 +2,7 @@
 title: "De Debian 10 a Debian 11"
 header:
   image: /assets/posts/es/de-debian10-a-debian11/header.png
+  teaser: /assets/posts/es/de-debian10-a-debian11/teaser.png
 categories:
   - Tutorial
   - Debian
