@@ -11,7 +11,7 @@ categories:
 lang: en
 ref: 37
 permalink: /en/update-the-portainer-container/
-last_modified_at: 2021-12-16
+last_modified_at: 2022-06-28
 ---
 
 [In the previous article it was seen how to **install *Docker* and *Portainer***](https://www.danielmartingonzalez.com/en/docker-and-portainer-in-debian). A fantastic option to manage *Docker* containers visually.
@@ -30,8 +30,8 @@ The steps to follow are easy:
 Open a terminal and type the following commands:
 
 ```bash
-$ docker stop Portainer
-$ docker rm Portainer
+$ docker stop portainer
+$ docker rm portainer
 $ docker pull portainer/portainer-ce
 $ docker run -d --name=portainer --hostname=portainer --network=host --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data -e TZ='Europe/Madrid' portainer/portainer-ce
 ```
