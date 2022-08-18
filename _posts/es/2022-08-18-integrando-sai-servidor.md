@@ -106,7 +106,7 @@ El cliente [**_nut-webui_**](https://github.com/gpdm/nut) es algo más complejo.
 - `upsstats.html`
 - `upsstats-single.html`
 
-> Configuración y archivos de ejemplo: https://github.com/gpdm/nut/tree/master/nut-webui/files/etc/nut
+> Configuración y archivos de ejemplo: [https://github.com/gpdm/nut/tree/master/nut-webui/files/etc/nut](https://github.com/gpdm/nut/tree/master/nut-webui/files/etc/nut)
 
 E incluirlos en una carpeta que usaremos al instanciar el contenedor con el siguiente comando:
 

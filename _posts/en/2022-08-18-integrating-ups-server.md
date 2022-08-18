@@ -105,7 +105,7 @@ The [**_nut-webui_**](https://github.com/gpdm/nut) client is somewhat more compl
 - `upsstats.html`
 - `upsstats-single.html`
 
-> Configuration and sample files: https://github.com/gpdm/nut/tree/master/nut-webui/files/etc/nut
+> Configuration and sample files: [https://github.com/gpdm/nut/tree/master/nut-webui/files/etc/nut](https://github.com/gpdm/nut/tree/master/nut-webui/files/etc/nut)
 
 And include them in a folder that we will use when instantiating the container with the following command:
 
