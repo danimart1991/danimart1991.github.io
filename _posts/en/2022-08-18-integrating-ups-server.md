@@ -31,7 +31,7 @@ Although compatible with many brands and models (which we will see later), for t
 
 [_NUT_ (_Network UPS Tools_)](https://networkupstools.org/) consists of two well-differentiated parts, a **software in server mode**, which obtains the data from the UPS, and a **software in client mode**, which displays the data obtained by requesting that information from the server.
 
-We need to know which USB device our server has assigned to the UPS. To do this, in the terminal of the server that is going to manage the UPS, execute `lusb`, connect the USB cable from the UPS to the server and launch the command again. We will see a new entry:
+We need to know which USB device our server has assigned to the UPS. To do this, in the terminal of the server that is going to manage the UPS, execute `lsusb`, connect the USB cable from the UPS to the server and launch the command again. We will see a new entry:
 
 ```bash
 ...

@@ -32,7 +32,7 @@ Aunque compatible con muchas marcas y modelos (que veremos más adelante), para 
 
 [_NUT_ (_Network UPS Tools_)](https://networkupstools.org/) consta de dos partes bien diferenciadas, **un software en modo servidor**, el cual obtiene los datos del SAI, y **un software en modo cliente**, que muestra los datos obtenidos pidiendo al servidor esa información.
 
-Necesitamos conocer que dispositivo _USB_ ha asignado nuestro servidor al SAI. Para ello, en la terminal del servidor que va a gestionar el SAI ejecutamos `lusb`, enchufamos un cable _USB_ del _SAI_ al servidor y lanzamos el comando de nuevo. Veremos una nueva entrada:
+Necesitamos conocer que dispositivo _USB_ ha asignado nuestro servidor al SAI. Para ello, en la terminal del servidor que va a gestionar el SAI ejecutamos `lsusb`, enchufamos un cable _USB_ del _SAI_ al servidor y lanzamos el comando de nuevo. Veremos una nueva entrada:
 
 ```bash
 ...
