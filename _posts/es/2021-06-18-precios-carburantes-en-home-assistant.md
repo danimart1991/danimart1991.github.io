@@ -4,7 +4,7 @@ header:
   image: /assets/posts/es/precios-carburantes-en-home-assistant/header.png
 categories:
   - Tutorial
-  - Home Asistant
+  - Home Assistant
 tags:
   - Diesel
   - Gasolina

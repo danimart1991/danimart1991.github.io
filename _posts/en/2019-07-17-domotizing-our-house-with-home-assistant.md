@@ -2,8 +2,16 @@
 title: "Domotizing our house with Home Assistant"
 header:
   image: /assets/posts/en/domotizing-our-house-with-home-assistant/header.jpg
-tags: [ English, Domotic, Home, Assistant, Hassio, Hass.io ]
-categories: [ English, Domotic, Home Assistant ]
+tags:
+  - English
+  - Home Automation
+  - Home Assistant
+  - Hassio
+  - Hass.io
+categories: 
+  - English
+  - Home Automation
+  - Home Assistant
 lang: en
 ref: 12
 permalink: /en/domotizing-our-house-with-home-assistant/

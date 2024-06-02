@@ -2,7 +2,10 @@
 title: "Caring your plants with Mi Flora and Home Assistant"
 header:
   image: /assets/posts/en/caring-your-plants-with-mi-flora-and-home-assistant/header.jpg
-tags: homeassistant hassio domotica
+tags: 
+  - Home Assistant
+  - Xiaomi
+  - Home Automation
 lang: en
 ref: 16
 permalink: /en/caring-your-plants-with-mi-flora-and-home-assistant/

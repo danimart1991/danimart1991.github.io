@@ -5,7 +5,7 @@ header:
 categories:
   - Tutorial
   - ESPHome
-  - Domotics
+  - Home Automation
 tags:
   - ESPHome
   - Plug

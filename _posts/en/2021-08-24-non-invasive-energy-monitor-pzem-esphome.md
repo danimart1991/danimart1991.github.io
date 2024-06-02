@@ -5,7 +5,7 @@ header:
 categories:
   - Tutorial
   - ESPHome
-  - Domotic
+  - Home Automation
 tags:
   - ESPHome
   - Monitor

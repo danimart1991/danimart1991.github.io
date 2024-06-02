@@ -2,7 +2,10 @@
 title: "Meeting Home Assistant"
 header:
   image: /assets/posts/en/meeting-home-assistant/header.jpg
-tags: homeassistant hassio domotica
+tags: 
+  - Home Assistant
+  - hassio
+  - Home Automation
 lang: en
 ref: 13
 permalink: /en/meeting-home-assistant/
