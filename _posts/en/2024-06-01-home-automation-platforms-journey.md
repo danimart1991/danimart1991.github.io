@@ -6,13 +6,25 @@ header:
 toc: false
 classes: wide
 categories:
-  - Home Automation
-  - IoT
-  - Home Assistant
+  - Fundamentals
+  - Platforms
 tags:
-  - Home Automation
+  - Zigbee
+  - Wi-Fi
+  - Thread
+  - Bluetooth
+  - Z-Wave
   - Home Assistant
-  - IoT
+  - Homey
+  - OpenHAB
+  - Fundamentals
+  - Domoticz
+  - Protocols
+  - Google Home
+  - Alexa
+  - Apple Home
+  - Matter
+  - Platforms
 link: https://domoticarte.com/en/p/home-automation-platforms-journey/
 lang: en
 ref: 50

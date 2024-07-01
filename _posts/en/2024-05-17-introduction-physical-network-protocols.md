@@ -6,13 +6,20 @@ header:
 toc: false
 classes: wide
 categories:
-  - Home Automation
-  - IoT
-  - Home Assistant
+  - Fundamentals
+  - Networks
 tags:
-  - Home Automation
-  - Home Assistant
-  - IoT
+  - Zigbee
+  - Wi-Fi
+  - Thread
+  - Bluetooth
+  - Z-Wave
+  - Ethernet
+  - Radiofrequency
+  - Infrared
+  - Fundamentals
+  - Networks
+  - Protocols
 link: https://domoticarte.com/en/p/introduction-physical-network-protocols/
 lang: en
 ref: 49

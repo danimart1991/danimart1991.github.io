@@ -6,13 +6,20 @@ header:
 toc: false
 classes: wide
 categories:
-  - Domótica
-  - IoT
-  - Home Assistant
+  - Fundamentos
+  - Redes
 tags:
-  - Domótica
-  - Home Assistant
-  - IoT
+  - Zigbee
+  - Wi-Fi
+  - Thread
+  - Bluetooth
+  - Z-Wave
+  - Ethernet
+  - Radiofrecuencia
+  - Infrarrojo
+  - Fundamentos
+  - Redes
+  - Protocolos
 link: https://domoticarte.com/p/introduccion-protocolos-fisico-red/
 lang: es
 ref: 49

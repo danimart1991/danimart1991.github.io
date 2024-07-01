@@ -6,13 +6,25 @@ header:
 toc: false
 classes: wide
 categories:
-  - Domótica
-  - IoT
-  - Home Assistant
+  - Fundamentos
+  - Plataformas
 tags:
-  - Domótica
+  - Zigbee
+  - Wi-Fi
+  - Thread
+  - Bluetooth
+  - Z-Wave
   - Home Assistant
-  - IoT
+  - Homey
+  - OpenHAB
+  - Fundamentos
+  - Domoticz
+  - Protocolos
+  - Google Home
+  - Alexa
+  - Apple Home
+  - Matter
+  - Plataformas
 link: https://domoticarte.com/p/viaje-plataformas-domotica/
 lang: es
 ref: 50
