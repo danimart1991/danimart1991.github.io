@@ -1,0 +1,60 @@
+---
+---
+
+<!doctype html>
+<html lang="{{ page.lang | slice: 0,2 | default: "en" }}" class="no-js">
+  <head>
+    {% include head.html %}
+    {% include head/custom.html %}
+    <link rel="canonical" href="{{ page.redirect_to }}"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="refresh" content="0;url={{ page.redirect_to }}" />
+  </head>
+
+  <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
+    {% include_cached skip-links.html %}
+    {% include_cached browser-upgrade.html %}
+    {% include masthead.html %}
+
+    <div class="initial-content">    
+      <div id="main" role="main">
+        {% include sidebar.html %}
+      
+        <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+          {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+          <div class="page__inner-wrap">
+            {% unless page.header.overlay_color or page.header.overlay_image %}
+              <header>
+                {% if page.title %}<h1 id="page-title" class="page__title" itemprop="headline">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>{% endif %}
+                {% include page__meta.html %}
+              </header>
+            {% endunless %}
+            <section class="page__content" itemprop="text">
+              <div>
+                <p>Redirigiendo a domoticarte...</p>
+                <p><a href="{{ page.redirect_to }}" class="btn btn--primary">Haz clic aquí si no eres redirigido.</a></p>
+                <script>location='{{ page.redirect_to }}'</script>
+              </div>
+            </section>            
+          </div>
+        </article>
+      </div>
+    </div>
+
+    {% if site.search == true %}
+      <div class="search-content">
+        {% include search/search_form.html %}
+      </div>
+    {% endif %}
+
+    <div id="footer" class="page__footer">
+      <footer>
+        {% include footer/custom.html %}
+        {% include footer.html %}
+      </footer>
+    </div>
+
+    {% include scripts.html %}
+
+  </body>
+</html>

@@ -3,8 +3,7 @@ title: "El amanecer de la Domótica: Un Viaje Épico a través de sus Plataforma
 header:
   image: /assets/posts/es/viaje-plataformas-domotica/header.png
   teaser: /assets/posts/es/viaje-plataformas-domotica/teaser.png
-toc: false
-classes: wide
+layout: redirected-es
 categories:
   - Fundamentos
   - Plataformas
@@ -25,7 +24,7 @@ tags:
   - Apple Home
   - Matter
   - Plataformas
-link: https://domoticarte.com/p/viaje-plataformas-domotica/
+redirect_to: https://domoticarte.com/p/viaje-plataformas-domotica/
 lang: es
 ref: 50
 permalink: /es/viaje-plataformas-domotica/

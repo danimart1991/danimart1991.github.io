@@ -3,8 +3,7 @@ title: "Descubre la Domótica: Zigbee, Thread, WiFi y Más"
 header:
   image: /assets/posts/es/introduccion-protocolos-fisico-red/header.png
   teaser: /assets/posts/es/introduccion-protocolos-fisico-red/teaser.png
-toc: false
-classes: wide
+layout: redirected-es
 categories:
   - Fundamentos
   - Redes
@@ -20,7 +19,7 @@ tags:
   - Fundamentos
   - Redes
   - Protocolos
-link: https://domoticarte.com/p/introduccion-protocolos-fisico-red/
+redirect_to: https://domoticarte.com/p/introduccion-protocolos-fisico-red/
 lang: es
 ref: 49
 permalink: /es/introduccion-protocolos-fisico-red/

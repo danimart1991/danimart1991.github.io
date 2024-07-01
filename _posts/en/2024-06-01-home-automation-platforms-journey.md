@@ -3,8 +3,7 @@ title: "The dawn of Home Automation: An Epic Journey through its Platforms"
 header:
   image: /assets/posts/en/home-automation-platforms-journey/header.png
   teaser: /assets/posts/en/home-automation-platforms-journey/teaser.png
-toc: false
-classes: wide
+layout: redirected-en
 categories:
   - Fundamentals
   - Platforms
@@ -25,7 +24,7 @@ tags:
   - Apple Home
   - Matter
   - Platforms
-link: https://domoticarte.com/en/p/home-automation-platforms-journey/
+redirect_to: https://domoticarte.com/en/p/home-automation-platforms-journey/
 lang: en
 ref: 50
 permalink: /en/home-automation-platforms-journey/

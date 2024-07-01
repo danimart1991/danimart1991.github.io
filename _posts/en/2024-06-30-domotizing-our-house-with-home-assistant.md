@@ -3,8 +3,7 @@ title: "Domotizing our house with Home Assistant"
 header:
   image: /assets/posts/en/domotizing-our-house-with-home-assistant/header.jpg
   teaser: /assets/posts/en/domotizing-our-house-with-home-assistant/teaser.jpg
-toc: false
-classes: wide
+layout: redirected-en
 categories:
   - Fundamentals
   - Platforms
@@ -19,7 +18,7 @@ tags:
   - Docker
   - Homelab
   - Server
-link: https://domoticarte.com/en/p/home-assistant-home-automation-next-level/
+redirect_to: https://domoticarte.com/en/p/home-assistant-home-automation-next-level/
 lang: en
 ref: 12
 permalink: /en/domotizing-our-house-with-home-assistant/

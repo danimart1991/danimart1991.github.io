@@ -3,8 +3,7 @@ title: "Domotizando nuestra casa con Home Assistant"
 header:
   image: /assets/posts/es/domotizando-nuestra-casa-con-home-assistant/header.jpg
   teaser: /assets/posts/es/domotizando-nuestra-casa-con-home-assistant/teaser.jpg
-toc: false
-classes: wide
+layout: redirected-es
 categories:
   - Fundamentos
   - Plataformas
@@ -19,7 +18,7 @@ tags:
   - Docker
   - Homelab
   - Servidor
-link: https://domoticarte.com/p/home-assistant-domotica-siguiente-nivel/
+redirect_to: https://domoticarte.com/p/home-assistant-domotica-siguiente-nivel/
 lang: es
 ref: 12
 permalink: /es/domotizando-nuestra-casa-con-home-assistant/
