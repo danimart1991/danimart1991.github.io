@@ -9,7 +9,7 @@ categories:
 lang: en
 ref: 36
 permalink: /en/docker-and-portainer-in-debian/
-last_modified_at: 2021-12-16
+last_modified_at: 2024-08-16
 ---
 
 As our colleague [**Joaquín García** explained in an extensive article in **No Country for Geeks**](https://www.nocountryforgeeks.com/contenerizacion-de-aplicaciones-en-docker/), [**_Docker_**](https://www.docker.com/) is a platform for running applications in containers. These containers are a virtualization method that includes everything imaginable to easily package an entire environment.
@@ -24,7 +24,7 @@ On the other hand [**Portainer**](https://www.portainer.io/) "installed" as a co
 
 Although in theory the following installation of _Docker_ and _Portainer_ can be done on any operating system based on _Linux_, we all know that depending on the distribution and version there are small differences. So, for the following steps in my case these prerequisites are fulfilled:
 
-- [_Debian 11 64 Bit_ on a _Mini-PC_](https://www.danielmartingonzalez.com/en/installing-debian-from-scratch/). Any other distribution based on _Debian_ like _Raspbian_ should also work.
+- [_Debian 12 64 Bit_ on a _Mini-PC_](https://www.danielmartingonzalez.com/en/installing-debian-from-scratch/). Any other distribution based on _Debian_ like _Raspbian_ should also work.
 - [`sudo` command installed](https://www.danielmartingonzalez.com/en/installing-debian-from-scratch/#bonus-install-sudo)
 - [Updated `sources.list` file with `contrib` and `non-free` package collections](https://www.danielmartingonzalez.com/en/installing-debian-from-scratch/#bonus-2-update-sourceslist)
 - [_IP_ of the _Mini-PC_ configured as static](https://www.danielmartingonzalez.com/en/static-ip-in-debian/)
@@ -37,26 +37,26 @@ We are missing a requirement, **to add the repository in order to install _Docke
 1. Install the following packages to allow `apt` to use secure repositories over [_HTTPS_](https://en.wikipedia.org/wiki/HTTPS). Execute the following commands in the console, one by one:
 
    ```bash
-   $ sudo apt-get install ca-certificates
-   $ sudo apt-get install curl
-   $ sudo apt-get install gnupg
-   $ sudo apt-get install lsb-release
+   $ sudo apt-get update
+   $ sudo apt-get install ca-certificates curl
    ```
 
 2. Add the official [_GPG_](https://gnupg.org/) keys for _Docker_.
 
-   ```bash
-   $ curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-   OK
+   ```bash   
+   $ sudo install -m 0755 -d /etc/apt/keyrings
+   $ sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+   $ sudo chmod a+r /etc/apt/keyrings/docker.asc
    ```
 
 3. Add the repository to the list of repositories to get _Docker_.
 
    ```bash
-   $ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+   $ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
    ```
 
-   > The command `lsb_release -cs` returns the name of the installed Debian distribution (e.g. `buster` for _Debian 10_).
+   > If you are using a Debian-derived distribution, the version may not be retrieved correctly. You will need to replace `(. /etc/os-release && echo "$VERSION_CODENAME")` with the corresponding Debian version in your distribution, e.g. `bookworm`.
 
 4. Finally, update the package collection.
 
@@ -69,7 +69,7 @@ We are missing a requirement, **to add the repository in order to install _Docke
 To **install the latest stable version of _Docker Engine_** just run:
 
 ```bash
-$ sudo apt-get install docker-ce docker-ce-cli containerd.io
+$ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
 After a few seconds you can check that _Docker_ has been installed correctly by asking for the installed version and running the test `hello-world` image.

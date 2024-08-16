@@ -9,7 +9,7 @@ categories:
 lang: es
 ref: 36
 permalink: /es/docker-y-portainer-en-debian/
-last_modified_at: 2021-12-16
+last_modified_at: 2024-08-16
 ---
 
 Como ya nos descubrió nuestro compañero [**Joaquín García** en un extenso artículo en **No Country for Geeks**](https://www.nocountryforgeeks.com/contenerizacion-de-aplicaciones-en-docker/), [**_Docker_**](https://www.docker.com/) es una plataforma para ejecutar aplicaciones en contenedores, siendo estos contenedores un método de virtualización que incluye todo lo imaginable para empaquetar de manera sencilla todo un entorno.
@@ -24,7 +24,7 @@ Por su lado [**Portainer**](https://www.portainer.io/) "instalado" como contened
 
 Aunque en principio la siguiente instalación de _Docker_ y _Portainer_ se puede realizar sobre cualquier sistema operativo basado en _Linux_, todos conocemos que dependiendo de la distribución y versión existen pequeñas diferencias. Por lo que para los siguientes pasos en mi caso se cumplen estos requisitos previos:
 
-- [_Debian 11 64 Bit_ sobre un _Mini-PC_](https://www.danielmartingonzalez.com/es/instalando-debian-desde-cero/). En principio cualquier otra distribución basada en _Debian_ como _Raspbian_ también debería valer.
+- [_Debian 12 64 Bit_ sobre un _Mini-PC_](https://www.danielmartingonzalez.com/es/instalando-debian-desde-cero/). En principio cualquier otra distribución basada en _Debian_ como _Raspbian_ también debería valer.
 - [Comando `sudo` instalado](https://www.danielmartingonzalez.com/es/instalando-debian-desde-cero/#bonus-instalar-sudo)
 - [Archivo `sources.list` actualizado con colección de paquetes `contrib` y `non-free`](https://www.danielmartingonzalez.com/es/instalando-debian-desde-cero/#bonus-2-actualizar-sourceslist)
 - [_IP_ del _Mini-PC_ configurada como estática](https://www.danielmartingonzalez.com/es/ip-estatica-en-debian/)
@@ -37,26 +37,26 @@ Nos falta un requisito, **añadir el repositorio para poder instalar el paquete 
 1. Instala los siguientes paquetes para permitir que `apt` use repositorios seguros sobre [_HTTPS_](https://es.wikipedia.org/wiki/Protocolo_seguro_de_transferencia_de_hipertexto). Ejecutando los siguientes comandos en consola, uno a uno:
 
    ```bash
-   $ sudo apt-get install ca-certificates
-   $ sudo apt-get install curl
-   $ sudo apt-get install gnupg
-   $ sudo apt-get install lsb-release
+   $ sudo apt-get update
+   $ sudo apt-get install ca-certificates curl
    ```
 
 2. Añade las claves [_GPG_](https://gnupg.org/) oficiales de _Docker_.
 
-   ```bash
-   $ curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-   OK
+   ```bash   
+   $ sudo install -m 0755 -d /etc/apt/keyrings
+   $ sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+   $ sudo chmod a+r /etc/apt/keyrings/docker.asc
    ```
 
 3. Añade al listado de repositorios el repositorio para obtener _Docker_.
 
    ```bash
-   $ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+   $ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
    ```
 
-   > El comando `lsb_release -cs` devuelve el nombre de la distribución Debian instalada (ej. `bullseye` para _Debian 11_).
+   > Si utilizas una distribución derivada de Debian, es posible que no se obtenga la versión correctamente. Tendrás que sustituir `(. /etc/os-release && echo "$VERSION_CODENAME")` por la versión de Debian correspondiente en la distribución, por ejemplo `bookworm`.
 
 4. Por último, actualiza la colección de paquetes.
 
@@ -69,7 +69,7 @@ Nos falta un requisito, **añadir el repositorio para poder instalar el paquete 
 Para **instalar la última versión estable de _Docker Engine_** basta con ejecutar:
 
 ```bash
-$ sudo apt-get install docker-ce docker-ce-cli containerd.io
+$ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
 Tras unos segundos podemos comprobar que _Docker_ se ha instalado correctamente preguntando por la versión instalada y ejecutando la imagen `hello-world` de prueba.
