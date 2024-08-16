@@ -22,6 +22,7 @@ redirect_to: https://domoticarte.com/p/home-assistant-domotica-siguiente-nivel/
 lang: es
 ref: 12
 permalink: /es/domotizando-nuestra-casa-con-home-assistant/
+last_modified_at: 2024-06-30
 ---
 
 Damos un salto en la domótica y exploramos Home Assistant, una plataforma de código abierto centrada en la privacidad, que lleva tu casa inteligente al siguiente nivel. Hablamos de sus características, ventajas y métodos de instalación.
