@@ -17,15 +17,15 @@ logo: "/assets/images/logo.png"
 # masthead_title: # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs: false # true, false (default)
 words_per_minute: 200
-comments:
-  provider: "giscus"
-  giscus:
-    repo_id: "MDEwOlJlcG9zaXRvcnkyNjMxMDk2NjU="
-    category_name: "Comments"
-    category_id: "DIC_kwDOD668Ic4B-Rv8"
-    discussion_term : "pathname"
-    reactions_enabled: 1
-    theme: "light"
+# comments:
+#   provider: "giscus"
+#   giscus:
+#     repo_id: "MDEwOlJlcG9zaXRvcnkyNjMxMDk2NjU="
+#     category_name: "Comments"
+#     category_id: "DIC_kwDOD668Ic4B-Rv8"
+#     discussion_term : "pathname"
+#     reactions_enabled: 1
+#     theme: "light"
 # reCaptcha:
 #   siteKey:
 #   secret:
