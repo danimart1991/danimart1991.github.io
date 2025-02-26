@@ -33,7 +33,7 @@ words_per_minute: 200
 #   path: # blank (default) uses feed.xml
 #   hide: # true, false (default)
 search: true
-seatch_full_content: true
+search_full_content: true
 # search_provider: # lunr (default), algolia, google
 
 # SEO Related
